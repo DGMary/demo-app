@@ -1,13 +1,44 @@
-import { Tabs } from '@mantine/core';
+import { Tabs, AppShell, Header } from '@mantine/core';
+import HeaderComponent from '../Header/Header';
+import styled from '@emotion/styled'
+
+const StyledTabs = styled(Tabs)`
+  cursor: pointer;
+  & .mantine-Tabs-tab {
+    border: none;
+    &:hover {
+      backgroun-color: inherit;
+    }
+  }
+  & .mantine-Tabs-tabLabel {
+    padding: 4px 0;
+    position: relative;
+    &:after {
+      content: "";
+      position: absolute;
+      width: 1px;
+      height: 120%;
+      background: #ced4da;
+      top: -2px;
+      right: -17px
+    }
+  }
+
+  & .mantine-Tabs-tab[data-active] {
+    background-color: white;
+    .mantine-Tabs-tabLabel:after {
+      content: none;
+    }
+  }
+`;
 
 function TabsComponent() {
   return (
-    <Tabs color="teal" defaultValue="first">
-      <Tabs.List>
-        <Tabs.Tab value="first">Tab 1</Tabs.Tab>
-        <Tabs.Tab value="second">Tab 2</Tabs.Tab>
-        <Tabs.Tab value="third">Tab 3</Tabs.Tab>
-      </Tabs.List>
+    <StyledTabs defaultValue="first">
+      <AppShell
+        padding="md"
+        header={<Header height={50}>{<HeaderComponent />}</Header>}
+      >          
 
       <Tabs.Panel value="first">
         Tab Content 1
@@ -20,7 +51,8 @@ function TabsComponent() {
       <Tabs.Panel value="third">
         Tab Content 3
       </Tabs.Panel>
-    </Tabs>
+    </AppShell>
+    </StyledTabs>
   );
 }
 
