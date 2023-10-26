@@ -1,11 +1,14 @@
-import { MantineProvider, Text } from '@mantine/core'
+import { MantineProvider } from '@mantine/core'
+import Header from './components/Header/Header'
+import Tabs from './components/Tabs/Tabs'
 import './App.css'
 
 function App() {
 
   return (
     <MantineProvider withGlobalStyles withNormalizeCSS>
-      <Text>Welcome to Demo app!</Text>
+      <Header />
+      <Tabs />
     </MantineProvider>
   )
 }
