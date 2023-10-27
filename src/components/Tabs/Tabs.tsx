@@ -1,27 +1,17 @@
 import { Tabs, AppShell, Header } from '@mantine/core';
 import HeaderComponent from '../Header/Header';
 import styled from '@emotion/styled'
+import TabContent from './TabContent';
 
 const StyledTabs = styled(Tabs)`
-  cursor: pointer;
+  .mantine-Tabs-panel {
+    height: 100%;
+    background: lightblue;
+    overflow: auto;
+  }
+
   & .mantine-Tabs-tab {
     border: none;
-    &:hover {
-      backgroun-color: inherit;
-    }
-  }
-  & .mantine-Tabs-tabLabel {
-    padding: 4px 0;
-    position: relative;
-    &:after {
-      content: "";
-      position: absolute;
-      width: 1px;
-      height: 120%;
-      background: #ced4da;
-      top: -2px;
-      right: -17px
-    }
   }
 
   & .mantine-Tabs-tab[data-active] {
@@ -30,28 +20,35 @@ const StyledTabs = styled(Tabs)`
       content: none;
     }
   }
+
+  & .mantine-AppShell-main {
+    padding-top: 50px;
+  }
+  // & .mantine-ScrollArea-root {
+  //   min-height: calc(100vh - 66px);
+  // }
 `;
 
 function TabsComponent() {
   return (
     <StyledTabs defaultValue="first">
       <AppShell
-        padding="md"
+        padding="0"
         header={<Header height={50}>{<HeaderComponent />}</Header>}
-      >          
+      >    
+        <Tabs.Panel value="first">
+          <TabContent />
+        </Tabs.Panel>
 
-      <Tabs.Panel value="first">
-        Tab Content 1
-      </Tabs.Panel>
+          <Tabs.Panel value="second">
+            Tab Content 2
+          </Tabs.Panel>
 
-      <Tabs.Panel value="second">
-        Tab Content 2
-      </Tabs.Panel>
+          <Tabs.Panel value="third">
+            Tab Content 3
+          </Tabs.Panel>   
 
-      <Tabs.Panel value="third">
-        Tab Content 3
-      </Tabs.Panel>
-    </AppShell>
+      </AppShell>
     </StyledTabs>
   );
 }

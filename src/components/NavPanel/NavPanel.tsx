@@ -6,8 +6,7 @@ function NavPanel() {
   return (
     <Grid
       align="center"
-      sx={{flexWrap: "nowrap"}}
-      m={0}
+      sx={{flexWrap: "nowrap", margin: 0}}
     >
       <Grid.Col span="content"> 
         <ActionIcon variant="transparent">
