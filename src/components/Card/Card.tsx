@@ -1,6 +1,14 @@
-import { Card, Group, Text, Menu, ActionIcon, Image, List, rem } from '@mantine/core';
+import { Card, Group, Text, Menu, ActionIcon, Image, List, rem, Anchor } from '@mantine/core';
+import styled from '@emotion/styled'
 import { IconDots, IconEye, IconFileZip, IconTrash } from '@tabler/icons-react';
 import viteLogo from '/vite.svg'
+import dataList from './dataList.json';
+
+const StyledListItem = styled(List.Item)`
+  & .mantine-Anchor-root:hover {
+    text-decoration: none;
+  }
+`;
 
 function CardItem() {
   return (
@@ -35,34 +43,18 @@ function CardItem() {
           spacing="xs"
           size="sm"
           center
-          icon={
-            <Image
-              src={viteLogo}
-              height={24}
-              width={24}
-              alt="No image Logo link"
-            />
-          }
+          icon={<Image src={viteLogo} height={24} width={24} alt="No image Logo link"/>}
         >
-          <List.Item >Test text</List.Item>
-          <List.Item>Install dependencies with yarn</List.Item>
-          <List.Item>To start development server run npm start command</List.Item>
-          <List.Item>Run tests to make sure your changes do not break the build</List.Item>
-          <List.Item
-            icon={            
-              <Image
-                src="https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=720&q=80"
-                height={24}
-                width={24}
-                alt="Logo link"
-              />
-            }
-          >
-            Submit a pull request once you are done
-          </List.Item>
+          {dataList.map((item) => (
+            <StyledListItem key={item.id}
+              icon={item.img && <Image src={item.img} height={24} width={24} alt="Logo link" />}> 
+              <Anchor href={item.href} target="_blank" color='black'>
+                {item.title}
+              </Anchor>
+            </StyledListItem>))
+          }
         </List>
       </Card.Section>
-
     </Card>
   );
 }

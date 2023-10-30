@@ -12,21 +12,17 @@ const StyledTabs = styled(Tabs)`
 
   & .mantine-Tabs-tab {
     border: none;
+    margin: 0;
   }
 
   & .mantine-Tabs-tab[data-active] {
     background-color: white;
-    .mantine-Tabs-tabLabel:after {
-      content: none;
-    }
+    margin: 0;
   }
 
   & .mantine-AppShell-main {
     padding-top: 50px;
   }
-  // & .mantine-ScrollArea-root {
-  //   min-height: calc(100vh - 66px);
-  // }
 `;
 
 function TabsComponent() {
