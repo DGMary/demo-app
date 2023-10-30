@@ -12,7 +12,7 @@ const StyledListItem = styled(List.Item)`
 
 function CardItem() {
   return (
-    <Card withBorder shadow="sm" radius="md">
+    <Card withBorder shadow="sm" radius="md" mb="sm">
       <Card.Section withBorder inheritPadding py="xs">
         <Group position="apart">
           <Text weight={500}>Review pictures</Text>

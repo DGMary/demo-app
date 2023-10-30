@@ -7,16 +7,10 @@ const StyledTabs = styled(Tabs)`
   .mantine-Tabs-panel {
     height: 100%;
     background: lightblue;
-    overflow: auto;
+    padding: 24px 16px 0;
   }
 
   & .mantine-Tabs-tab {
-    border: none;
-    margin: 0;
-  }
-
-  & .mantine-Tabs-tab[data-active] {
-    background-color: white;
     margin: 0;
   }
 
